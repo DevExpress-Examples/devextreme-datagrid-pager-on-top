@@ -10,7 +10,7 @@ import DataGrid, {
 } from 'devextreme-react/data-grid';
 import Pagination from 'devextreme-react/pagination';
 import { DataSource } from 'devextreme/common/data';
-import { generateData } from './data';
+import generateData from './data.tsx';
 
 const allowedPageSizes = [5, 10, 15];
 const initialPageSize = 10;
@@ -19,26 +19,27 @@ const componentWidth = 800;
 function App(): JSX.Element {
   const [pageIndex, setPageIndex] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(initialPageSize);
-  const dataSource = useMemo(() => {
-    return new DataSource({
+  const [itemCount, setItemCount] = useState(0);
+  const dataSource = useMemo(
+    () => new DataSource({
       store: {
         type: 'array',
         data: generateData(100000),
-        key: 'id',  
+        key: 'id',
       },
       onLoadingChanged: (isLoading: boolean) => {
-        if(!isLoading) {
+        if (!isLoading) {
           setItemCount(dataSource.totalCount());
         }
-      }
-    })
-  }, [])
-  const [itemCount, setItemCount] = useState(0);
+      },
+    }),
+    [],
+  );
 
   const handlePaginationOptionChanged = useCallback((e: any) => {
     if (e.name === 'pageIndex') {
       setPageIndex(e.value);
-    } else if (e.name === 'pageSize') {      
+    } else if (e.name === 'pageSize') {
       setPageIndex(1);
       setPageSize(e.value);
     }

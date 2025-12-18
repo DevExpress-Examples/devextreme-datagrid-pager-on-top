@@ -6,7 +6,7 @@ function randomFactory() {
   };
 }
 
-export function generateData(count: number) {
+export default function generateData(count: number) {
   const random = randomFactory();
   const surnames = ['Smith', 'Johnson', 'Brown', 'Taylor', 'Anderson', 'Harris', 'Clark', 'Allen', 'Scott', 'Carter'];
   const names = ['James', 'John', 'Robert', 'Christopher', 'George', 'Mary', 'Nancy', 'Sandra', 'Michelle', 'Betty'];
