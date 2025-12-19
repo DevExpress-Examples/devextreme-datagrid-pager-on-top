@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import 'devextreme/dist/css/dx.material.blue.light.compact.css';
+
+.main {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 16px;
+}

@@ -1,3 +1,30 @@
-<div class="default-style">
-  <dx-button [text]="buttonText" (onClick)="onClick($event)"></dx-button>
+<div class="main">
+  <dx-pagination
+    [width]="componentWidth"
+    [allowedPageSizes]="allowedPageSizes"
+    [pageIndex]="pageIndex"
+    [itemCount]="itemCount"
+    [pageSize]="pageSize"
+    [showNavigationButtons]="true"
+    [showInfo]="true"
+    (onOptionChanged)="onPaginationOptionChanged($event)">
+  </dx-pagination>
+
+  <div style="max-height: 800px; margin-top: 16px;">
+    <dx-data-grid
+      [dataSource]="dataSource"
+      [showBorders]="true"
+      [width]="componentWidth"
+      (onOptionChanged)="onGridOptionChanged($event)">
+      <dxo-filter-row [visible]="true"></dxo-filter-row>
+      <dxo-scrolling rowRenderingMode="virtual"></dxo-scrolling>
+      <dxo-paging [pageSize]="pageSize" [pageIndex]="pageIndex - 1"></dxo-paging>
+      <dxo-pager [visible]="false"></dxo-pager>
+
+      <dxi-column dataField="firstName" caption="First Name"></dxi-column>
+      <dxi-column dataField="lastName" caption="Last Name"></dxi-column>
+      <dxi-column dataField="gender" caption="Gender"></dxi-column>
+      <dxi-column dataField="birthDate" caption="Birth Date" dataType="date"></dxi-column>
+    </dx-data-grid>
+  </div>
 </div>
