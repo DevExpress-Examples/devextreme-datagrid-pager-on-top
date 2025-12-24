@@ -5,3 +5,7 @@
 body {
     margin: 8px;
 }
+
+#gridContainer {
+    max-height: 800px;
+}

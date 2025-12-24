@@ -1,29 +1,71 @@
 @using ASP_NET_Core.Models
 
-<h2>Home</h2>
+<h2>DataGrid with pager on top</h2>
 
-@(Html.DevExtreme().DataGrid<SampleOrder>()
-    .ShowBorders(true)
-    .DataSource(d => d.Mvc().Controller("SampleData").LoadAction("Get").Key("OrderID"))
-    .Columns(columns => {
-        columns.AddFor(m => m.OrderID);
-        columns.AddFor(m => m.OrderDate);
-        columns.AddFor(m => m.CustomerName);
-        columns.AddFor(m => m.ShipCountry);
-        columns.AddFor(m => m.ShipCity);
-    })
-    .Paging(p => p.PageSize(10))
-    .FilterRow(f => f.Visible(true))
-    .HeaderFilter(f => f.Visible(true))
-    .GroupPanel(p => p.Visible(true))
-    .Grouping(g => g.AutoExpandAll(false))
-    .RemoteOperations(true)
-    .Summary(s => s
-        .TotalItems(totalItems => {
-            totalItems.AddFor(m => m.ShipCity).SummaryType(SummaryType.Count);
-        })
-        .GroupItems(groupItems => {
-            groupItems.Add().SummaryType(SummaryType.Count);
-        })
-    )
+@(Html.DevExtreme().Pagination()
+    .ID("pager")
+    .Width(800)
+    .AllowedPageSizes(new[] { 5, 10, 15 })
+    .PageIndex(1)
+    .PageSize(10)
+    .ShowNavigationButtons(true)
+    .ShowInfo(true)
+    .OnInitialized("onPagerInitialized")
+    .OnOptionChanged("onPagerOptionChanged")
 )
+
+@(Html.DevExtreme().DataGrid<User>()
+    .ID("gridContainer")
+    .ShowBorders(true)
+    .Width(800)
+    .DataSource(d => d.Mvc().Controller("SampleData").LoadAction("Get").Key("Id"))
+    .DataSourceOptions(o => o.OnLoadingChanged("onLoading"))
+    .Paging(p => p.PageSize(10))
+    .Pager(p => {
+        p.Visible(false);
+    })
+    .Columns(columns => {
+        columns.AddFor(m => m.Id).Width(50);
+        columns.AddFor(m => m.FirstName);
+        columns.AddFor(m => m.LastName);
+        columns.AddFor(m => m.Gender);
+        columns.AddFor(m => m.BirthDate);
+    })
+    .FilterRow(f => f.Visible(true))
+    .RemoteOperations(true)
+    .OnInitialized("onGridInitialized")
+    .OnOptionChanged("onGridOptionChanged")
+)
+
+<script type="text/javascript">
+    let pagerInstance;
+    let dataGridInstance;
+
+    function onPagerInitialized(e) {
+        pagerInstance = e.component;
+    }
+
+    function onGridInitialized(e) {
+        dataGridInstance = e.component;
+    }
+
+    function onLoading(isLoading) {
+        if (!isLoading && pagerInstance && dataGridInstance) {
+            pagerInstance.option("itemCount", dataGridInstance.totalCount());
+        }
+    }
+
+    function onPagerOptionChanged(e) {
+        if (e.name === "pageIndex") {
+            dataGridInstance.pageIndex(e.value - 1);
+        } else if (e.name === "pageSize") {
+            dataGridInstance.pageSize(e.value);
+        }
+    }
+
+    function onGridOptionChanged(e) {
+        if (e.fullName && e.fullName.includes("filterValue")) {
+            pagerInstance.option("pageIndex", 1);
+        }
+    }
+</script>
