@@ -14,11 +14,13 @@ import DxDataGrid, {
 } from 'devextreme-vue/data-grid';
 import generateData from '../data';
 
-const allowedPageSizes = ref([5, 10, 15]);
+
+const componentWidth = 800;
+const allowedPageSizes = [5, 10, 15];
+
 const pageIndex = ref(1);
 const pageSize = ref(10);
 const itemCount = ref(0);
-const componentWidth = ref(800);
 
 const dataSource = new DataSource({
   store: {
