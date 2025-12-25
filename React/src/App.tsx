@@ -36,13 +36,13 @@ function App(): JSX.Element {
     [],
   );
 
-  const handlePaginationOptionChanged = useCallback((e: any) => {
-    if (e.name === 'pageIndex') {
-      setPageIndex(e.value);
-    } else if (e.name === 'pageSize') {
-      setPageIndex(1);
-      setPageSize(e.value);
-    }
+  const onPageSizeChange = useCallback((value: number) => {
+    setPageIndex(1);
+    setPageSize(value);
+  }, []);
+
+  const onPageIndexChange = useCallback((value: number) => {
+    setPageIndex(value);
   }, []);
 
   const handleGridOptionChanged = useCallback((e: { fullName?: string }) => {
@@ -61,7 +61,8 @@ function App(): JSX.Element {
         pageSize={pageSize}
         showNavigationButtons={true}
         showInfo={true}
-        onOptionChanged={handlePaginationOptionChanged}
+        onPageIndexChange={onPageIndexChange}
+        onPageSizeChange={onPageSizeChange}
       />
       <div style={{ maxHeight: 800, marginTop: 16 }}>
         <DataGrid

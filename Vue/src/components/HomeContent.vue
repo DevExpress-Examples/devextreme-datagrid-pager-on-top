@@ -10,10 +10,8 @@ import DxDataGrid, {
   DxScrolling,
   DxPaging,
   DxPager,
-  type DxDataGridTypes,
 } from 'devextreme-vue/data-grid';
 import generateData from '../data';
-
 
 const componentWidth = 800;
 const allowedPageSizes = [5, 10, 15];
@@ -35,16 +33,16 @@ const dataSource = new DataSource({
   },
 });
 
-function onPaginationOptionChanged(e:any) {
-  if (e.name === 'pageIndex' && typeof e.value === 'number') {
-    pageIndex.value = e.value;
-  } else if (e.name === 'pageSize' && typeof e.value === 'number') {
-    pageIndex.value = 1;
-    pageSize.value = e.value;
-  }
+function onPageSizeChange(value: number) {
+  pageIndex.value = 1;
+  pageSize.value = value;
 }
 
-function onGridOptionChanged(e:DxDataGridTypes.OptionChangedEvent) {
+function onPageIndexChange(value: number) {
+  pageIndex.value = value;
+}
+
+function onGridOptionChanged(e: { fullName?: string }) {
   if (e.fullName && e.fullName.includes('filterValue')) {
     pageIndex.value = 1;
   }
@@ -61,7 +59,8 @@ function onGridOptionChanged(e:DxDataGridTypes.OptionChangedEvent) {
       :page-size="pageSize"
       :show-navigation-buttons="true"
       :show-info="true"
-      @option-changed="onPaginationOptionChanged"
+      @update:page-index="onPageIndexChange"
+      @update:page-size="onPageSizeChange"
     />
 
     <div style="max-height: 800px; margin-top: 16px;">
