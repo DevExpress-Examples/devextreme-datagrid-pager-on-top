@@ -7,24 +7,44 @@
     [pageSize]="pageSize"
     [showNavigationButtons]="true"
     [showInfo]="true"
-    (onOptionChanged)="onPaginationOptionChanged($event)">
+    (onOptionChanged)="onPaginationOptionChanged($event)"
+  >
   </dx-pagination>
 
-  <div style="max-height: 800px; margin-top: 16px;">
+  <div style="max-height: 800px; margin-top: 16px">
     <dx-data-grid
       [dataSource]="dataSource"
       [showBorders]="true"
       [width]="componentWidth"
-      (onOptionChanged)="onGridOptionChanged($event)">
-      <dxo-filter-row [visible]="true"></dxo-filter-row>
-      <dxo-scrolling rowRenderingMode="virtual"></dxo-scrolling>
-      <dxo-paging [pageSize]="pageSize" [pageIndex]="pageIndex - 1"></dxo-paging>
-      <dxo-pager [visible]="false"></dxo-pager>
+      (onOptionChanged)="onGridOptionChanged($event)"
+    >
+      <dxo-data-grid-filter-row [visible]="true"></dxo-data-grid-filter-row>
+      <dxo-data-grid-scrolling
+        rowRenderingMode="virtual"
+      ></dxo-data-grid-scrolling>
+      <dxo-data-grid-paging
+        [pageSize]="pageSize"
+        [pageIndex]="pageIndex - 1"
+      ></dxo-data-grid-paging>
+      <dxo-data-grid-pager [visible]="false"></dxo-data-grid-pager>
 
-      <dxi-column dataField="firstName" caption="First Name"></dxi-column>
-      <dxi-column dataField="lastName" caption="Last Name"></dxi-column>
-      <dxi-column dataField="gender" caption="Gender"></dxi-column>
-      <dxi-column dataField="birthDate" caption="Birth Date" dataType="date"></dxi-column>
+      <dxi-data-grid-column
+        dataField="firstName"
+        caption="First Name"
+      ></dxi-data-grid-column>
+      <dxi-data-grid-column
+        dataField="lastName"
+        caption="Last Name"
+      ></dxi-data-grid-column>
+      <dxi-data-grid-column
+        dataField="gender"
+        caption="Gender"
+      ></dxi-data-grid-column>
+      <dxi-data-grid-column
+        dataField="birthDate"
+        caption="Birth Date"
+        dataType="date"
+      ></dxi-data-grid-column>
     </dx-data-grid>
   </div>
 </div>
