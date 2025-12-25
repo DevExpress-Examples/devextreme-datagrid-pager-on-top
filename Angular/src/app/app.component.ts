@@ -37,13 +37,13 @@ export class AppComponent {
     });
   }
 
-  onPaginationOptionChanged(e: {name: string, value: number}): void {
-    if (e.name === 'pageIndex' && typeof e.value === 'number') {
-      this.pageIndex = e.value;
-    } else if (e.name === 'pageSize' && typeof e.value === 'number') {
-      this.pageIndex = 1;
-      this.pageSize = e.value;
-    }
+  onPageSizeChange(value: number): void {
+    this.pageIndex = 1;
+    this.pageSize = value;
+  }
+
+  onPageIndexChange(value: number): void {
+    this.pageIndex = value;
   }
 
   onGridOptionChanged(e: { fullName?: string }): void {

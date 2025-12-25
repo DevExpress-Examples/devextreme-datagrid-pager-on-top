@@ -7,7 +7,8 @@
     [pageSize]="pageSize"
     [showNavigationButtons]="true"
     [showInfo]="true"
-    (onOptionChanged)="onPaginationOptionChanged($event)"
+    (pageIndexChange)="onPageIndexChange($event)"
+    (pageSizeChange)="onPageSizeChange($event)"
   >
   </dx-pagination>
 

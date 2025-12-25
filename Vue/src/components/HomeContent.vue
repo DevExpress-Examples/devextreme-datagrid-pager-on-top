@@ -33,13 +33,13 @@ const dataSource = new DataSource({
   },
 });
 
-function onPaginationOptionChanged(e: { name: string; value: number }) {
-  if (e.name === 'pageIndex' && typeof e.value === 'number') {
-    pageIndex.value = e.value;
-  } else if (e.name === 'pageSize' && typeof e.value === 'number') {
-    pageIndex.value = 1;
-    pageSize.value = e.value;
-  }
+function onPageSizeChange(value: number) {
+  pageIndex.value = 1;
+  pageSize.value = value;
+}
+
+function onPageIndexChange(value: number) {
+  pageIndex.value = value;
 }
 
 function onGridOptionChanged(e: { fullName?: string }) {
@@ -59,7 +59,8 @@ function onGridOptionChanged(e: { fullName?: string }) {
       :page-size="pageSize"
       :show-navigation-buttons="true"
       :show-info="true"
-      @option-changed="onPaginationOptionChanged"
+      @update:page-index="onPageIndexChange"
+      @update:page-size="onPageSizeChange"
     />
 
     <div style="max-height: 800px; margin-top: 16px;">
