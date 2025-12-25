@@ -1,5 +1,7 @@
 import spellCheck from 'eslint-config-devextreme/spellCheck';
 import vueConfig from 'eslint-config-devextreme/vue';
+import vueParser from 'vue-eslint-parser';
+import tsParser from '@typescript-eslint/parser';
 
 export default [
   {
@@ -7,4 +9,15 @@ export default [
   },
   ...spellCheck,
   ...vueConfig,
+  {
+    files: ['**/*.vue'],
+    languageOptions: {
+      parser: vueParser,
+      parserOptions: {
+        parser: tsParser,
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+      },
+    },
+  },
 ];
