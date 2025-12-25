@@ -33,7 +33,7 @@ const dataSource = new DataSource({
   },
 });
 
-function onPaginationOptionChanged(e: any) {
+function onPaginationOptionChanged(e: { name: string; value: number }) {
   if (e.name === 'pageIndex' && typeof e.value === 'number') {
     pageIndex.value = e.value;
   } else if (e.name === 'pageSize' && typeof e.value === 'number') {

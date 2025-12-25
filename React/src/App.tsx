@@ -36,7 +36,7 @@ function App(): JSX.Element {
     [],
   );
 
-  const handlePaginationOptionChanged = useCallback((e: any) => {
+  const handlePaginationOptionChanged = useCallback((e: {name: string, value: number}) => {
     if (e.name === 'pageIndex') {
       setPageIndex(e.value);
     } else if (e.name === 'pageSize') {

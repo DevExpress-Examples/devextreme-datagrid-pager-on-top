@@ -37,7 +37,7 @@ export class AppComponent {
     });
   }
 
-  onPaginationOptionChanged(e: any): void {
+  onPaginationOptionChanged(e: {name: string, value: number}): void {
     if (e.name === 'pageIndex' && typeof e.value === 'number') {
       this.pageIndex = e.value;
     } else if (e.name === 'pageSize' && typeof e.value === 'number') {
@@ -46,7 +46,7 @@ export class AppComponent {
     }
   }
 
-  onGridOptionChanged(e: any): void {
+  onGridOptionChanged(e: { fullName?: string }): void {
     if (e.fullName && e.fullName.includes('filterValue')) {
       this.pageIndex = 1;
     }
