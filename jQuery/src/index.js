@@ -29,7 +29,7 @@ $(() => {
     }
   }).dxPagination("instance");
   
-  const dataGrid = $('#gridContainer').dxDataGrid({
+  const dataGrid = $('#grid-container').dxDataGrid({
     onOptionChanged: (e) => {            
       if(e.fullName.includes("filterValue")){
         pager.option("pageIndex", 1);
@@ -54,7 +54,6 @@ $(() => {
     },
   }).dxDataGrid('instance');
 });
-
 
 let s = 123456789;
 function random() {
