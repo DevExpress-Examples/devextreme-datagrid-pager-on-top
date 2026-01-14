@@ -29,14 +29,10 @@ This repository demonstrates how to display the pager at the top of the DevExtre
 ## Documentation
 
 - [Getting Started with DataGrid](https://js.devexpress.com/Documentation/Guide/UI_Components/DataGrid/Getting_Started_with_DataGrid/)
+- [Getting Started with Pagination](https://js.devexpress.com/jQuery/Documentation/Guide/UI_Components/Pagination/Getting_Started_with_Pagination/)
 - [DataGrid - API Reference](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxDataGrid/)
+- [Pagination - API Reference](https://js.devexpress.com/jQuery/Documentation/ApiReference/UI_Components/dxPagination/api/)
 
-## Does this example address your development requirements/objectives?
-
-[<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=devextreme-datagrid-pager-on-top&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=devextreme-datagrid-pager-on-top&~~~was_helpful=no)
-
-(you will be redirected to DevExpress.com to submit your response)
-<!-- feedback end -->
 <!-- feedback -->
 ## Does this example address your development requirements/objectives?
 
