@@ -8,7 +8,7 @@
 
 This repository demonstrates how to display the pager at the top of the DevExtreme DataGrid component. The implementation disables the built-in pager and synchronizes the DataGrid’s paging with a Pagination component rendered above it.
 
-![Example image](images/image-template.png)
+![Example image](images/pager-on-top.png)
 
 ## Files to Review
 
