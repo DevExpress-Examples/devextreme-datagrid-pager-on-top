@@ -4,11 +4,18 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 [![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
-# DevExtreme DataGrid - Display Pager on Top
+# DevExtreme DataGrid - Implement a Pager Above the Grid
 
-This repository demonstrates how to display the pager at the top of the DevExtreme DataGrid component. The implementation disables the built-in pager and synchronizes the DataGrid’s paging with a Pagination component rendered above it.
+This example disables the pager built into DevExtreme [DataGrid](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxDataGrid) and implements a standalone [Pagination](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxPagination) component to control page navigation and page sizes.
 
-![Example image](images/pager-on-top.png)
+![DevExtreme DataGrid - Implement a Pager Above the Grid](images/pager-on-top.png)
+
+## Implementation Details
+
+To sync the two components:
+
+- **ASP.NET Core and jQuery**: Configure [DataGrid.onOptionChanged](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxDataGrid/Configuration/#onOptionChanged) and [Pagination.onOptionChanged](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxPagination/Configuration/#onOptionChanged).
+- **Angular, Vue, and React**: Configure **DataGrid.onOptionChanged** and implement two-way property binding for [Pagination.pageIndex](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxPagination/Configuration/#pageIndex) and [Pagination.pageSize](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxPagination/Configuration/#pageSize).
 
 ## Files to Review
 
