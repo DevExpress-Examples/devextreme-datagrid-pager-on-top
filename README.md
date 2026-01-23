@@ -4,7 +4,7 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 [![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
-# DevExtreme DataGrid - Implement a Pager Above the Grid
+# DevExtreme DataGrid - Display a Pager Above the Grid
 
 This example disables the pager built into DevExtreme [DataGrid](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxDataGrid) and implements a standalone [Pagination](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxPagination) component to control page navigation and page sizes.
 
@@ -12,10 +12,8 @@ This example disables the pager built into DevExtreme [DataGrid](https://js.deve
 
 ## Implementation Details
 
-To sync the two components:
-
-- **ASP.NET Core and jQuery**: Configure [DataGrid.onOptionChanged](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxDataGrid/Configuration/#onOptionChanged) and [Pagination.onOptionChanged](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxPagination/Configuration/#onOptionChanged).
-- **Angular, Vue, and React**: Configure **DataGrid.onOptionChanged** and implement two-way property binding for [Pagination.pageIndex](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxPagination/Configuration/#pageIndex) and [Pagination.pageSize](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxPagination/Configuration/#pageSize).
+- **ASP.NET Core and jQuery**: Handle [DataGrid.onOptionChanged](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxDataGrid/Configuration/#onOptionChanged) and [Pagination.onOptionChanged](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxPagination/Configuration/#onOptionChanged) events.
+- **Angular, Vue, and React**: Handle the **DataGrid.onOptionChanged** event and implement two-way property binding for [Pagination.pageIndex](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxPagination/Configuration/#pageIndex) and [Pagination.pageSize](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxPagination/Configuration/#pageSize) properties.
 
 ## Files to Review
 
