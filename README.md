@@ -5,7 +5,7 @@
 <!-- default badges end -->
 # DevExtreme DataGrid - Display a Pager Above the Grid
 
-The DevExtreme [DataGrid](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxDataGrid) component displays the built-in pager below the grid. This example hides the built-in pager and implements a standalone [Pagination](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxPagination) component in an external container above the grid.
+The DevExtreme [DataGrid](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxDataGrid) component displays its built-in pager below the grid. This example hides the built-in pager and implements a standalone [Pagination](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxPagination) component in an external container above the grid.
 
 ![DevExtreme DataGrid - Implement a Pager Above the Grid](images/pager-on-top.png)
 
