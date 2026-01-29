@@ -1,14 +1,18 @@
 <!-- default badges list -->
-![](https://img.shields.io/endpoint?url=https://codecentral.devexpress.com/api/v1/VersionRange/1116758312/25.2.2%2B)
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T1316720)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 [![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
-# DevExtreme DataGrid - Display Pager on Top
+# DevExtreme DataGrid - Display a Pager Above the Grid
 
-This repository demonstrates how to display the pager at the top of the DevExtreme DataGrid component. The implementation disables the built-in pager and synchronizes the DataGrid’s paging with a Pagination component rendered above it.
+The DevExtreme [DataGrid](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxDataGrid) component displays its built-in pager below the grid. This example hides the built-in pager and implements a standalone [Pagination](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxPagination) component in an external container above the grid.
 
-![Example image](images/pager-on-top.png)
+![DevExtreme DataGrid - Implement a Pager Above the Grid](images/pager-on-top.png)
+
+## Implementation Details
+
+- **ASP.NET Core and jQuery**: Handle [DataGrid.onOptionChanged](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxDataGrid/Configuration/#onOptionChanged) and [Pagination.onOptionChanged](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxPagination/Configuration/#onOptionChanged) events.
+- **Angular, Vue, and React**: Handle the **DataGrid.onOptionChanged** event and implement two-way property binding for [Pagination.pageIndex](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxPagination/Configuration/#pageIndex) and [Pagination.pageSize](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxPagination/Configuration/#pageSize) properties.
 
 ## Files to Review
 
