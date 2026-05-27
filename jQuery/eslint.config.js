@@ -1,4 +1,4 @@
-import spellCheck from 'eslint-config-devextreme/spellCheck';
+import spellCheck from 'eslint-config-devextreme/spell-check';
 import jqueryConfig from 'eslint-config-devextreme/jquery';
 
 export default [
@@ -7,4 +7,9 @@ export default [
   },
   ...spellCheck,
   ...jqueryConfig,
+  {
+    rules: {
+      'no-unused-vars': 'off',
+    },
+  },
 ];
