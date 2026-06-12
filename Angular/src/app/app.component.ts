@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import DataSource from 'devextreme/data/data_source';
 import generateData from './data';
 import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
@@ -8,6 +8,7 @@ import { DxPaginationModule } from 'devextreme-angular/ui/pagination';
   selector: 'app-root',
   imports: [DxDataGridModule, DxPaginationModule],
   templateUrl: './app.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
